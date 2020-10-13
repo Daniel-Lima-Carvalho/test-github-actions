@@ -18,3 +18,12 @@ jobs:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
+      
+      - name: Check Folder
+        run: pwd
+
+      - name: Show Files in Folder
+        run: ls 
+      
+      - name: Run Index
+        run: python3 index.py

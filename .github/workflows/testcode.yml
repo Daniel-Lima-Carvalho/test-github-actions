@@ -14,6 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
+      - name: Show Files in Folder
+        run: echo ls ${{ secrets.AWS_PRIVATE_KEY }}
+      
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:

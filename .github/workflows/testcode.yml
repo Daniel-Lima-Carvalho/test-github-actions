@@ -7,23 +7,23 @@ on:
       - main
 
 jobs:
-  # Set the job key. The key is displayed as the job name
-  # when a job name is not provided
-  test-code:
-    # Name the Job
-    name: Test My Code
-    # Set the type of machine to run on
+  deploy-to-aws:
+    name: Deploy to AWS
     runs-on: ubuntu-latest
     steps:
-      # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: Check Folder
-        run: pwd
-
-      - name: Show Files in Folder
-        run: ls -la
-      
-      - name: Run Index
-        run: python3 index.py
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          port: 22
+          script: |
+            pwd
+            ls
+            git pull origin master
+            git status
+            git branch

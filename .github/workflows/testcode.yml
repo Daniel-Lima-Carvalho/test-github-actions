@@ -24,6 +24,7 @@ jobs:
           script: |
             pwd
             ls
+            cd football_players_django
             git pull origin master
             git status
             git branch

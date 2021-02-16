@@ -22,8 +22,6 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           port: 22
           script: |
-            pwd
-            ls
             cd football_players_django
             git pull origin master
             git status

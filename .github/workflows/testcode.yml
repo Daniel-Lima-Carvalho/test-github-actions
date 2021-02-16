@@ -23,7 +23,7 @@ jobs:
         run: pwd
 
       - name: Show Files in Folder
-        run: ls 
+        run: ls -la
       
       - name: Run Index
         run: python3 index.py
